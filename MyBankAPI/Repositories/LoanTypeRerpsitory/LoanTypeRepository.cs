@@ -6,6 +6,10 @@ namespace MyBankAPI.Repositories.LoanTypeRerpsitory
 {
     public class LoanTypeRepository : BaseRepository<LoanType>, ILoanTypeRepository
     {
-       
+        public LoanTypeRepository(DataContext context) : base(context)
+        {
+
+        }
+
     }
 }

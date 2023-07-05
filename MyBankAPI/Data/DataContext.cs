@@ -1,16 +1,22 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using MyBankAPI.Models.Domain;
 
 namespace MyBankAPI.Data
 {
     public class DataContext : IdentityDbContext<IdentityUser>
     {
+        private readonly IConfiguration _configuration;
+        public DataContext(IConfiguration configuration)
+        {
+              _configuration = configuration;
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=DESKTOP-0SMUIG2;Database=BankDB;Integrated Security=true;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

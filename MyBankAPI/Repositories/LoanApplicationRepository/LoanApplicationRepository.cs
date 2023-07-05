@@ -8,6 +8,9 @@ namespace MyBankAPI.Repository.LoanApplicationRepository
 {
     public class LoanApplicationRepository : BaseRepository<LoanApplication>,ILoanApplicationRepository
     {
-       
+        public LoanApplicationRepository(DataContext context) : base(context)
+        {
+
+        }
     }
 }

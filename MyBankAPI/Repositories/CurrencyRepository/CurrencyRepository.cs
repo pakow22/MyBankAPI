@@ -6,6 +6,9 @@ namespace MyBankAPI.Repositories.CuurencyRepository
 {
     public class CurrencyRepository : BaseRepository<Currency>, ICurrencyRepository
     {
-       
+        public CurrencyRepository(DataContext context) : base(context)
+        {
+
+        }
     }
 }

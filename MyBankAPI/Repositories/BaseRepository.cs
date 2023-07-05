@@ -9,9 +9,9 @@ namespace MyBankAPI.Repositories
         private readonly DataContext _dataContext;
         #endregion
         #region ctor
-        public BaseRepository()
+        public BaseRepository(DataContext context)
         {
-            _dataContext = new DataContext();
+            _dataContext = context;
         }
         #endregion
         public void Add(T entity)

@@ -26,7 +26,6 @@ builder.Host.UseSerilog((context, configuration) =>
 configuration.WriteTo.File("Log/Log.txt").MinimumLevel.Information());
 
 var tkConf = builder.Configuration.GetSection("Jwt");
-
 var tokenValidationParameters = new TokenValidationParameters
 {
     ValidateIssuer = true,
@@ -88,7 +87,7 @@ app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
 
 
-using (var dbContext = new DataContext())
+using (var dbContext = new DataContext(builder.Configuration))
 {
     dbContext.Database.EnsureCreated();
 }
