@@ -22,7 +22,6 @@
             {
                 try
                 {
-                    // Replace the response stream with our custom stream
                     context.Response.Body = responseBody;
 
                     await _next(context);

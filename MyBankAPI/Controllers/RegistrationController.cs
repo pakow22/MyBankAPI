@@ -10,13 +10,19 @@ namespace MyBankAPI.Controllers
     [Route("api/[controller]")]
     public class RegistrationController : Controller
     {
+        #region private field
         private readonly UserManager<IdentityUser> _userManager;
+        #endregion
+
+        #region ctor
 
         public RegistrationController( UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
         }
-        
+        #endregion
+
+        #region method
         [HttpPost]
         public async Task<IActionResult> Register(RegistrationModel registrationModel)
         {
@@ -36,5 +42,6 @@ namespace MyBankAPI.Controllers
             }
             return BadRequest("User Registration Filed!");
         }
+        #endregion
     }
 }

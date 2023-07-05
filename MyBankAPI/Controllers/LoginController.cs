@@ -15,15 +15,22 @@ namespace MyBankAPI.Controllers
     [Route("api/[controller]")] 
     public class LoginController : ControllerBase
     {
+        #region private fields
         private readonly IConfiguration _configuration;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
+        #endregion
+
+        #region ctor
         public LoginController(IConfiguration configuration, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _signInManager = signInManager;
             _configuration = configuration;
             _userManager = userManager;
         }
+        #endregion
+
+        #region method
         [HttpPost] 
         public async Task<IActionResult> Login([FromBody] UserModel loginModel)
         {
@@ -56,6 +63,6 @@ namespace MyBankAPI.Controllers
                 return null;
             }
         }
-      
+        #endregion
     }
 }

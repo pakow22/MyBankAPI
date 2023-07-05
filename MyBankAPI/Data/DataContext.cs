@@ -7,8 +7,6 @@ namespace MyBankAPI.Data
 {
     public class DataContext : IdentityDbContext<IdentityUser>
     {
-        //public DataContext(DbContextOptions<DataContext> options) : base() { }
-          
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -17,7 +15,6 @@ namespace MyBankAPI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-          //  modelBuilder.Entity<User>().HasKey(x=> x.Id);
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Currency> Currencies { get; set; }

@@ -15,15 +15,22 @@ namespace MyBankAPI.Controllers
     [ApiController]
     public class JWTTokenController : ControllerBase
     {
+        #region private Fields
         private readonly IConfiguration _configuration;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
+        #endregion
+
+        #region ctor
         public JWTTokenController(IConfiguration configuration, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _signInManager = signInManager;
             _configuration = configuration;
             _userManager = userManager;
         }
+        #endregion
+
+        #region Method
         [AllowAnonymous]
         [HttpPost]
 
@@ -58,5 +65,6 @@ namespace MyBankAPI.Controllers
                 signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        #endregion
     }
 }

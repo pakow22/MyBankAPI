@@ -7,7 +7,6 @@ using MyBankAPI.Services.LoanApplicationService;
 
 namespace MyBankAPI.Controllers
 {
-   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class LoanController : ControllerBase
@@ -15,12 +14,14 @@ namespace MyBankAPI.Controllers
         #region private fields
         private readonly ILoanApplicationService _loanApplicationService;
         #endregion
+
         #region ctor
         public LoanController(ILoanApplicationService loanApplicationService)
         {
            _loanApplicationService = loanApplicationService;
         }
         #endregion
+
         #region methods
 
         [HttpGet]
