@@ -79,7 +79,7 @@ namespace MyBankAPI.Services.LoanApplicationService
             loanapplication.UserId = applicationModel.UserId;
 
             _loanApplicationRepository.Update(loanapplication);
-            return default;
+            return applicationModel;
         }
         #endregion
 
